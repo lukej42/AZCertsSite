@@ -4,7 +4,7 @@ trigger:
       - main
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'linux-latest'
 
 variables:
   buildConfiguration: 'Release'
@@ -46,7 +46,7 @@ steps:
   displayName: 'Deploy to Azure App Service'
   inputs:
     azureSubscription: 'Azure subscription 1(525c7c1f-f5e9-4bf4-8d7a-5b7a06889a12)'
-    appType: 'webApp'
+    appType: 'webAppLinux'
     appName: 'AZCertsSite'
     package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
 
