@@ -1,0 +1,28 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Luke Gumbleton | Azure Portfolio";
+}
+<h2>Azure Certifications</h2>
+<div class="row">
+    @foreach (var cert in Model.Certifications)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                @if (!string.IsNullOrEmpty(cert.BadgeUrl))
+                {
+                    <img src="@cert.BadgeUrl" class="card-img-top" alt="@cert.Code Badge" />
+                }
+                <div class="card-body">
+                    <h5 class="card-title">@cert.Title</h5>
+                    <p class="card-text">Code: @cert.Code</p>
+                    <p class="card-text"><small class="text-muted">Achieved: @cert.DateAchieved.ToShortDateString()</small></p>
+                @if (!string.IsNullOrEmpty(cert.Link))
+                {
+                    <a href="@cert.Link" target="_blank" class="btn btn-primary mt-2">View Certification</a>
+                }
+                </div>
+            </div>
+        </div>
+    }
+</div>
