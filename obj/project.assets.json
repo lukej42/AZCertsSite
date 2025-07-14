@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/luke.gumbleton/Documents/Azure/Github/Azure-Certificate-Site/AzureCertsSite.csproj",
+      "projectUniqueName": "/Users/luke.gumbleton/Documents/Azure/Github/AZCertsSite/AzureCertsSite.csproj",
       "projectName": "AzureCertsSite",
-      "projectPath": "/Users/luke.gumbleton/Documents/Azure/Github/Azure-Certificate-Site/AzureCertsSite.csproj",
+      "projectPath": "/Users/luke.gumbleton/Documents/Azure/Github/AZCertsSite/AzureCertsSite.csproj",
       "packagesPath": "/Users/luke.gumbleton/.nuget/packages/",
-      "outputPath": "/Users/luke.gumbleton/Documents/Azure/Github/Azure-Certificate-Site/obj/",
+      "outputPath": "/Users/luke.gumbleton/Documents/Azure/Github/AZCertsSite/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/luke.gumbleton/.nuget/NuGet/NuGet.Config"
