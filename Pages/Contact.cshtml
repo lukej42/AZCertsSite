@@ -13,4 +13,22 @@
     <li>LinkedIn: <a href="https://linkedin.com/in/luke-gumbleton-148a30148" target="_blank">linkedin.com/in/luke-gumbleton-148a30148</a></li>
     <li>Phone: <a href="tel:+447748901052">07748 901052</a></li>
     </ul>
+
+    <form action="/contact" method="post">
+    <label for="name">Name:</label><br />
+    <input type="text" id="name" name="name" required /><br /><br />
+
+    <label for="email">Email:</label><br />
+    <input type="email" id="email" name="email" required /><br /><br />
+
+    <label for="message">Message:</label><br />
+    <textarea id="message" name="message" rows="5" required></textarea><br /><br />
+
+  <button type="submit">Send Message</button>
+</form>
+
+@if (Model.Result != null)
+{
+    <p>@Model.Result</p>
+}
     </section>
