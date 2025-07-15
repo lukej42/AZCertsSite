@@ -5,15 +5,27 @@
 }
 
 <section id="contact">
-    <h2>Azure Role based access control</h2>
-    <p>My day to day consists of working on three different Azure tenants; two of these are work related and consist of a Production, Stage, QA and UAT environment for websites and supporting workloads, such as SQL, Automation Accounts, Front Door and Monitor. The third tenant is my own personal tenant, which hosts this site as a showcase and has various services created in Storage Accounts, Automation Accounts and VMs.
+    <h2>Access Control (IAM) Roles</h2>
+    <p>My day to day includes the administration of three different Azure tenants; two of these are work related and consist of a Production, Stage, QA and UAT environment for websites and supporting workloads, such as SQL, Automation Accounts, Front Door and Monitor. The third tenant is my own personal tenant, which hosts this site as a showcase and has various services created in Storage Accounts, Automation Accounts and VMs.
     </p>
     <p>
     I administer all of these tenants as one of the primary Global Administrators, and central to this responsiblity is the practise of always following best practise. This includes following the principle of least privilege.
     </p>
+    <p>When I inherited responsibility for both of the Azure tenants, I set out to establish and enforce best practise in all areas, especially during the assignment of IAM permissions. This was an essential task as experience varied between services and I also carefully needed to control the provisioning of services to ensure careful scaling, and to work within budget limitations
+    </p>
     </section>
     <section>
-    <h3 style="font-size: 18px;">Access Control (IAM) Roles</h3>
+    <h3 style="font-size: 18px;">Users</h3>
+    <p>It is imperative for a user to be given <b>only</b> the access that they require in order to adhere to the privilege of least privilege. This means, for example, a user who needs write access to a Storage Container only requires the <b>Storage Blob Data Contributor</b> at the Container level (not at the Storage Account level!) and only Contributor access is required, not Storage Blob Data Owner. It is important to note, however, that if a user needs to access a Sotrage Container through the Azure Storage Explorer, <b>Reader</b> access is required.</p>
+    <h3 style="font-size: 18px;">Service Principals</h3>
+    <p>I have been using Service Principals to deploy code to App Service using both Azure Devops and Bitbucket, plus a range of Automation runbooks. Adhering to the principal of least privilege means providing Contributor access to these Service Principals, separately at the relevant Resource Group level.</p>
+    <h3 style="font-size: 18px;">Managed Identities</h3>
+    <p>The use of a Managed Identity is to tie Azure resources together, which of course is in contrast to a Service Principal which is useful for allowing external services to access Azure resources, such as to deploy code.</p>
+    <p>I have been using Managed Identities recently to facilitate the back up of SQL databases. This is done through the use of an Automation account, which also provisions the Managed Identity. The Runbook, containing a Powershell script, uses the permissions that are assigned to the Managed Identity to access resources, in this case SQL Server and Storage Containers.</p>
+    <p>It is important to note that permissions for a Managed Identity need to be assigned through IAM. This means separately for Storage Containers and SQL Server</p>
+    
+    <img src="/images/ManagedIdentity1.png" alt="Managed Identity" width="800" height="100" />
 
 
+    <p> </p>
     </section>
