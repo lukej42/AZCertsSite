@@ -21,12 +21,25 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
+- task: SonarCloudPrepare@3
+  inputs:
+    SonarQube: 'SonarQube'
+    organization: 'azcertssite'
+    scannerMode: 'dotnet'
+    dotnetScannerVersion: '10.3.0.120579'
+    projectKey: 'rluke420672449_AZCertsSite'
+    projectName: 'AZCertsSite'
+
 - task: DotNetCoreCLI@2
   displayName: 'Build'
   inputs:
     command: 'build'
     projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
+
+- task: SonarCloudAnalyze@3
+  inputs:
+    jdkversion: 'JAVA_HOME_21_X64'
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish'
@@ -41,6 +54,10 @@ steps:
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
+
+- task: SonarCloudPublish@3
+  inputs:
+    pollingTimeoutSec: '20'
 
 - task: AzureWebApp@1
   displayName: 'Deploy to Azure App Service'
