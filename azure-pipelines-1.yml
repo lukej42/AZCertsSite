@@ -1,0 +1,117 @@
+trigger:
+  branches:
+    include:
+      - main
+
+stages:
+  # 1. Build Stage
+  - stage: Build
+    displayName: 'Build Stage'
+    jobs:
+      - job: BuildJob
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - task: DotNetCoreCLI@2
+            displayName: 'Build .NET Project'
+            inputs:
+              command: 'build'
+              projects: '**/*.csproj'
+
+          - task: DotNetCoreCLI@2
+            displayName: 'Publish .NET App'
+            inputs:
+              command: 'publish'
+              publishWebProjects: true
+              arguments: '--output $(Build.ArtifactStagingDirectory)'
+              zipAfterPublish: true
+
+          - task: PublishBuildArtifacts@1
+            inputs:
+              pathToPublish: '$(Build.ArtifactStagingDirectory)'
+              artifactName: 'drop'
+
+  # 2. Deploy to Staging Slot
+  - stage: DeployStaging
+    displayName: 'Deploy to Staging'
+    dependsOn: Build
+    jobs:
+      - deployment: DeployToStaging
+        environment: 'staging'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - download: current
+                  artifact: drop
+
+                - task: AzureWebApp@1
+                  displayName: 'Deploy to Azure Staging Slot'
+                  inputs:
+                    azureSubscription: '<your-service-connection>'
+                    appName: '<your-app-service-name>'
+                    package: '$(Pipeline.Workspace)/drop/*.zip'
+                    deployToSlotOrASE: true
+                    resourceGroupName: '<your-resource-group>'
+                    slotName: 'staging'
+
+  # 3. Run OWASP ZAP Baseline Scan
+  - stage: Pentest
+    displayName: 'Run OWASP ZAP Scan'
+    dependsOn: DeployStaging
+    jobs:
+      - job: ZAPScan
+        displayName: 'Run ZAP Scan on Staging'
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - script: |
+              echo "Starting OWASP ZAP Scan..."
+              docker pull owasp/zap2docker-stable
+              docker run --network="host" -v $(System.DefaultWorkingDirectory):/zap/wrk/:rw owasp/zap2docker-stable zap-baseline.py \
+                -t https://<your-staging-app>.azurewebsites.net \
+                -r zap_report.html \
+                -J zap_report.json \
+                -x zap_report.xml \
+                -m 5
+            displayName: 'Run OWASP ZAP Baseline Scan'
+
+          - task: PublishBuildArtifacts@1
+            inputs:
+              pathToPublish: '$(System.DefaultWorkingDirectory)/zap_report.html'
+              artifactName: 'ZAPReportHTML'
+              publishLocation: 'Container'
+
+          - task: PublishTestResults@2
+            condition: succeededOrFailed()
+            inputs:
+              testResultsFiles: '**/zap_report.xml'
+              testResultsFormat: 'JUnit'
+              testRunTitle: 'ZAP Security Scan Results'
+
+          - script: |
+              echo "Checking for high risk issues..."
+              cat zap_report.json | grep -q '"risk": "High"' && exit 1 || exit 0
+            displayName: 'Fail if High Risk Issues Found'
+
+  # 4. Optional: Deploy to Production
+  - stage: DeployProduction
+    displayName: 'Deploy to Production'
+    dependsOn: Pentest
+    condition: succeeded()  # Only deploy if pentest passes
+    jobs:
+      - deployment: DeployProd
+        environment: 'production'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - download: current
+                  artifact: drop
+
+                - task: AzureWebApp@1
+                  displayName: 'Deploy to Azure Production'
+                  inputs:
+                    azureSubscription: '<your-service-connection>'
+                    appName: '<your-app-service-name>'
+                    package: '$(Pipeline.Workspace)/drop/*.zip'
