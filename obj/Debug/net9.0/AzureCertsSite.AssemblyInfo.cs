@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AzureCertsSite")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d868c59ce158a996306db1ca23aa412e7af4a11a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3200e7f62074ecb3955be4440cd7575845e8328a")]
 [assembly: System.Reflection.AssemblyProductAttribute("AzureCertsSite")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AzureCertsSite")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
