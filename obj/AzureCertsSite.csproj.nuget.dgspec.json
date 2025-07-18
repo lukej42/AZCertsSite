@@ -1,33 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\githubdemo\\AZCertsSite\\AzureCertsSite.csproj": {}
+    "/Users/luke.gumbleton/Documents/Azure/Github/AZCertsSite/AzureCertsSite.csproj": {}
   },
   "projects": {
-    "C:\\githubdemo\\AZCertsSite\\AzureCertsSite.csproj": {
+    "/Users/luke.gumbleton/Documents/Azure/Github/AZCertsSite/AzureCertsSite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\githubdemo\\AZCertsSite\\AzureCertsSite.csproj",
+        "projectUniqueName": "/Users/luke.gumbleton/Documents/Azure/Github/AZCertsSite/AzureCertsSite.csproj",
         "projectName": "AzureCertsSite",
-        "projectPath": "C:\\githubdemo\\AZCertsSite\\AzureCertsSite.csproj",
-        "packagesPath": "C:\\Users\\rluke\\.nuget\\packages\\",
-        "outputPath": "C:\\githubdemo\\AZCertsSite\\obj\\",
+        "projectPath": "/Users/luke.gumbleton/Documents/Azure/Github/AZCertsSite/AzureCertsSite.csproj",
+        "packagesPath": "/Users/luke.gumbleton/.nuget/packages/",
+        "outputPath": "/Users/luke.gumbleton/Documents/Azure/Github/AZCertsSite/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\rluke\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/luke.gumbleton/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://pkgs.dev.azure.com/rluke420672449/eShopOnWeb/_packaging/eShopOnWebShared/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
@@ -69,7 +62,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
