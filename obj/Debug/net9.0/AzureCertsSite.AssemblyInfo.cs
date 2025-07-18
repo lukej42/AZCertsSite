@@ -14,10 +14,14 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 <<<<<<< HEAD
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0588f2357978bf38a58502f628a59f7528f83d18")]
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bfdcbcbf1ce2ba085c92e8bd12bace50091e942b")]
 >>>>>>> 0e3fabb (DLL merge)
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0e3fabb7802d03736736fb5a88c3eb99d1b30d6e")]
+>>>>>>> f4a3cc9 (DLL commit)
 [assembly: System.Reflection.AssemblyProductAttribute("AzureCertsSite")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AzureCertsSite")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
