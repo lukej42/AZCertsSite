@@ -13,7 +13,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AzureCertsSite")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0588f2357978bf38a58502f628a59f7528f83d18")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bfdcbcbf1ce2ba085c92e8bd12bace50091e942b")]
+>>>>>>> 0e3fabb (DLL merge)
 [assembly: System.Reflection.AssemblyProductAttribute("AzureCertsSite")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AzureCertsSite")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
