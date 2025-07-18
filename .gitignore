@@ -1,7 +1,0 @@
-**/obj/
-**/bin/
-*.cache
-*.g.props
-*.dgspec.json
-*.assets.json
-*.editorconfig
