@@ -31,7 +31,8 @@ body {
 }
 
 :root {
-  --bg-color: #007acc;
+  --accent-color: #007acc;
+  --bg-color: #ffffff;
   --text-color: #1f2937;
 }
 
