@@ -38,31 +38,65 @@
     <div style="height: 30px;"></div>
     <section itemid="Bicep">
     <h2>Bicep & ARM</h2>
-    <p></p>
+    <p>I use Bicep to run blue/green deployments, which involved provisioning a new "blue" or "green" environment using Bicep, integrated with an Azure Devops pipeline. As part of the process and once infrastructure had been deployed, a DNS switch was needed for production to ensure the live site was pointing to the new release.</p>
+    <p>Once complete and verified and a few days later, the old stack could be torn down.</p>
     </section>
     <section itemid="Azure Devops and Bitbucket">
     <h2>Azure Devops & Bitbucket</h2>
-    <p></p>
-
+    <p>As part of my current role, I am responsible for day-to-day administration of both the Azure Devops and Bitbucket environments, which includes administration of pipelines, repositories and the development of YAML files that support each pipeline. The site that is being released has an effect on the environment used and both Azure Boards and Jira are used for ticketing.</p>
+    <p>Additionally, I am responsible for the following:</p>
+    <ul>
+    <li>Pipeline configuration changes</li>
+    <li>Build updates</li>
+    <li>Deployment logic - both blue/green and App Service deployment slots are currently in use</li>
+    <li>Pull requests</li>
+    <li>Management of Secrets (more information below)</li>
+    </ul>
     </section>
     <section itemid="Security & Secrets">
     <h2>Security & Secrets</h2>
-    <p></p>
-
+    <p>I have always kept all Secrets stored in Azure key vault. This includes secrets that support both Azure Devops and Bitbucket, in complete adherence to best practise. Secrets are then stored as variables to be used during deployment.</p>
+    <ul>
+    <li>I provide each environment a Key Vault to ensure separation between QA, UAT, Stage, Production</li>
+    <li>Key Vault Secrets are used to store sensitive data</li>
+    <li>I use the Certificate section of secrets to upload for each domain (12 month renewal process of course!), though especially with App Service I now favour applying App Service Managed certificates when possible for each domain</li>
+    </ul>
     </section>
     <section itemid="Monitoring">
     <h2>Monitoring & Logging</h2>
-    <p></p>
-
+    <p>I have always found Azure Monitor to be a <b>hugely</b> beneficial and useful area on Azure to monitor infrastructure and applications - I find it's uses and capabilities quite unmatched when compared to other vendors. Colleagues who work in other infrastructure areas often take extended periods to attempt to diagnose infrastructure/application issues, whereas working with Azure Monitor and especially Application Insights, I find it much easier to diagnose and visualise issues efficiently before troubleshooting</p>
+    <ul>
+    <li>I configure Availability tests for each domain within an App Service which helps to monitor both the uptime of a domain, plus overall Availablity of the App Service</li>
+    <li>With Application Insights I have also found diagnosing spikes much easier than other cloud providers</li>
+    </ul>
+    <p>Logging is an area that I find compliments the Monitoring section of Azure very well. It is essential to ensure historic logs can be queried:</p>
+    <ul>
+    <li>I ensure each resource is linked to a Log Analytics Workspace</li>
+    <li>I am proficient at running KQL queries to provide historic logs, for example to show application errors over a given period</li>
+    </ul>
     </section>
     <section itemid="Git">
     <h2>Use of Git</h2>
-    <p></p>
-
+    <p>I have so much fun using Git! Though it is extremenly important to understand the power of Git and the effect of commands. With this in mind, it is essential to ensure best practise is always followed, which includes never committing directly to the main/master branch!</p>
+    <p>Some example commands that I use regularly:</p>
+    <ul>
+    <li>Git clone</li>
+    <li>Git pull</li>
+    <li>Git checkout Feature/****</li>
+    <li>Git add</li>
+    <li>Git commit</li>
+    <li>Git push</li>
+    <li>Git tag</li>
+    </ul>
+    <div style="height: 10px;"></div>
+    <p>Once a commit has been made to a feature branch or develop branch for example, a pull request is always required to merge to stage. From that point I would either merge further to main/master, or, if deploying to App Service, I would swap the slots to release changes that have been deployed to the stage slot, to production. This is an areas that I find App Service really excels, with the ability to swap slots to deploy to production, but also to swap slots back again quickly and efficiently.</p>
     </section>
-
     <section itemid="Docker">
     <h2>Docker</h2>
     <p></p>
 
     </section>
+
+    <section itemid="Learning">
+    <h2>Continuous Learning</h2>
+    <p></p>
