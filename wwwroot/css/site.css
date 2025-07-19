@@ -31,8 +31,8 @@ body {
 }
 
 :root {
-  --bg-color: #ffffff;
-  --text-color: #000000;
+  --bg-color: #007acc;
+  --text-color: #1f2937;
 }
 
 [data-theme="dark"] {
