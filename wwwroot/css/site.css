@@ -47,8 +47,8 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 .btn-primary {
-  background-color: #007acc;
-  border-color: #007acc;
+  background-color: #0379C7;
+  border-color: #0379C7;
 }
 .link-black-bold {
   color: #000000;
@@ -56,6 +56,6 @@ body {
   text-decoration: none; /* optional: removes underline */
 }
 .btn-aboutme {
-  background-color: #007acc;
-  border-color: #007acc;
+  background-color: #0379C7;
+  border-color: #0379C7;
 }
