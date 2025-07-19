@@ -55,3 +55,7 @@ body {
   font-weight: bold;
   text-decoration: none; /* optional: removes underline */
 }
+.btn-aboutme {
+  background-color: #007acc;
+  border-color: #007acc;
+}
