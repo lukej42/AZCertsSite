@@ -64,7 +64,7 @@
             const setTheme = (theme) => {
                 document.documentElement.setAttribute('data-theme', theme);
                 localStorage.setItem('theme', theme);
-                icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+                icon.textContent = theme === 'light' ? '☀️' : '🌙';
             };
 
             // Initial load
