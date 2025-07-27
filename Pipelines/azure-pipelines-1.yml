@@ -112,6 +112,6 @@ stages:
                 - task: AzureWebApp@1
                   displayName: 'Deploy to Azure Production'
                   inputs:
-                    azureSubscription: '<your-service-connection>'
+                    azureSubscription: '00000000-0000-0000-0000-000000000000'
                     appName: '<your-app-service-name>'
                     package: '$(Pipeline.Workspace)/drop/*.zip'
