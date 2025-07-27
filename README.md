@@ -1,3 +1,3 @@
-#This is a website to display all the Azure certifications that I have achieved.
+#AZCertsSite
 
-#The site is pushed to Azure App Service and up to my own personal website.
+This is my showcase website project, which I created to showcase my professional skills and certifications.
