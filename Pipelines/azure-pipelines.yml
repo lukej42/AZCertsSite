@@ -62,7 +62,7 @@ steps:
 - task: AzureWebApp@1
   displayName: 'Deploy to Azure App Service'
   inputs:
-    azureSubscription: 'Azure subscription 1(525c7c1f-f5e9-4bf4-8d7a-5b7a06889a12)'
+    azureSubscription: 'Azure subscription 1('00000000-0000-0000-0000-000000000000')'
     appType: 'webAppLinux'
     appName: 'AZCertsSite'
     package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
